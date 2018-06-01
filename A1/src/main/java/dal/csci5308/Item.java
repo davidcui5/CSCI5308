@@ -4,8 +4,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+//This Item class, contains partnumber, quantity, result, and errorMessage.
+//When serializing XML file, partnumber, quantity will be used to make Item objects result and errorMessage
+// will be Null initially, then, after Item is validated, validated with DatabaseInterface,
+// checked with PARTMANAGER, results and errorMessage will be set accordingly.
+//Then, Item can be used for serializing into XML response files.
 @XmlRootElement(name="item")
-@XmlType(propOrder = {"partnumber","quantity"})
+@XmlType(propOrder = {"partnumber","quantity","result","errorMessage"})
 public class Item {
     /*
     <item>
@@ -18,6 +23,8 @@ public class Item {
 
     private String partnumber;
     private String quantity;
+    private String result;
+    private String errorMessage;
 
     @XmlElement(name="partnumber")
     public void setPartnumber(String partnumber){
@@ -33,6 +40,22 @@ public class Item {
     }
     public String getQuantity(){
         return quantity;
+    }
+
+    @XmlElement(name="result")
+    public void setResult(String result){
+        this.result = result;
+    }
+    public String getResult(){
+        return result;
+    }
+
+    @XmlElement(name="errormessage")
+    public void setErrorMessage(String errorMessage){
+        this.errorMessage = errorMessage;
+    }
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
     //Validate item entry, I used Robert's Item Class' Validate method as reference, but I still wrote this myself.

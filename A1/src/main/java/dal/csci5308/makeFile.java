@@ -1,5 +1,7 @@
 package dal.csci5308;
 
+import com.sun.deploy.util.OrderedHashSet;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -9,19 +11,17 @@ public class makeFile {
 
     public static void main(String[] args){
 
-        DeliveryAddress addr = new DeliveryAddress();
-        addr.setName("David Cui");
-        addr.setPostalCode("abcdef");
+        OrderResponse or = new OrderResponse();
 
         try
         {
-            File file = new File("output.xml");
-            JAXBContext jaxbContext = JAXBContext.newInstance(DeliveryAddress.class);
+            File file = new File("makefile.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(OrderResponse.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             // output pretty printed
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            jaxbMarshaller.marshal(addr, file);
-            jaxbMarshaller.marshal(addr, System.out);
+            jaxbMarshaller.marshal(or, file);
+            jaxbMarshaller.marshal(or, System.out);
         }
         catch (JAXBException e)
         {
