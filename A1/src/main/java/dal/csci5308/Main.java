@@ -9,27 +9,31 @@ public class Main {
 
     public static void main (String[] args) throws Exception {
 
-        LowercaseXMLElementStreamReader reader = new LowercaseXMLElementStreamReader("C:\\Users\\david2\\CSCI5308\\A1\\src\\main\\java\\dal\\csci5308\\order.xml", Order.class);
-        Order order = (Order) reader.DeserializeXMLIntoObject();
+        Order order;
+        //try{
+            LowercaseXMLElementStreamReader reader = new LowercaseXMLElementStreamReader("C:\\Users\\david2\\CSCI5308\\A1\\bad.xml", Order.class);
+            order = (Order) reader.DeserializeXMLIntoObject();
+        //}
+        /*
+        catch (Exception e)
+        {
+            System.out.println("EXCEPTION START:");
+            System.out.println("BAD XML");
+            e.printStackTrace();
+            System.out.println("EXCEPTION END:");
+            return;
+        }
+        */
 
-        System.out.println(order.dealer.getDealerid());
-        System.out.println(order.dealer.getDealeraccesskey());
+
+        //System.out.println(order.dealer.getDealerid());
+        //System.out.println(order.dealer.getDealeraccesskey());
         System.out.println(order.dealer.validate());
 
         System.out.println(order.orderItems.isEmpty());
-        System.out.println(order.orderItems.get(0).getPartnumber());
-        System.out.println(order.orderItems.get(0).getQuantity());
+        System.out.println(order.orderItems.size());
         System.out.println(order.orderItems.get(0).validate());
-        System.out.println(order.orderItems.get(1).getPartnumber());
-        System.out.println(order.orderItems.get(1).getQuantity());
-        System.out.println(order.orderItems.get(1).validate());
 
-
-        System.out.println(order.deliveryAddress.getName());
-        System.out.println(order.deliveryAddress.getStreet());
-        System.out.println(order.deliveryAddress.getCity());
-        System.out.println(order.deliveryAddress.getProvince());
-        System.out.println(order.deliveryAddress.getPostalCode());
         System.out.println(order.deliveryAddress.validate());
 
         try

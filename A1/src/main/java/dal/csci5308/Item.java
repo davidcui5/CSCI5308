@@ -2,8 +2,10 @@ package dal.csci5308;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="item")
+@XmlType(propOrder = {"partnumber","quantity"})
 public class Item {
     /*
     <item>
