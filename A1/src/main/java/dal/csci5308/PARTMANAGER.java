@@ -1,5 +1,6 @@
 package dal.csci5308;
 
+//the PARTMANAGER interface provided, the DeliveryAddress class has been separated to a new .java file
 public interface PARTMANAGER
 {
     public enum PartResponse

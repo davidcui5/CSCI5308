@@ -1,10 +1,9 @@
 package dal.csci5308;
 
 import javax.xml.bind.annotation.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-//the OrderResponse class is the object for the response to the XML order
+//the OrderResponse class is the response to the XML order file
 //this object is required as I use JAXB to convert object to XML output file as response
 @XmlRootElement(name="order")
 @XmlType(propOrder = {"result","error","errorMessage","orderItems"})

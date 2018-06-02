@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name="deliveryaddress")
 @XmlType(propOrder={"name","street","city","province","postalCode"})
 public class DeliveryAddress {
-    //this is the Deliveryaddress in PARTMANAGER, I separated to here for better structure,
+    //this is the DeliveryAddress in PARTMANAGER, I separated it to here for better structure,
     //also changed public fields to private
     /*
     <!-- The delivery address to send the parts to. -->
@@ -82,5 +82,6 @@ public class DeliveryAddress {
             return false;
         return true;
     }
+
 }
 

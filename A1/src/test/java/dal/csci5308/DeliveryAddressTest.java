@@ -13,6 +13,7 @@ import java.io.StringReader;
 
 public class DeliveryAddressTest {
 
+    //I made some XML to make DeliveryAddress objects and test DeliveryAddress' methods
     //this is a valid XML
     static final String VALID_ADDR = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
             "<deliveryaddress>\n" +
@@ -111,7 +112,7 @@ public class DeliveryAddressTest {
             "	<postalcode></postalcode>\n" +
             "</deliveryaddress>";
 
-    // This method is written by Robert Hawkey
+    // This method is written by Robert Hawkey, it makes objects from XML string
     DeliveryAddress deserializeXMLToAddrObject(String xml)
     {
         try

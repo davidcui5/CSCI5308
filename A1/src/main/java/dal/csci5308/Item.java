@@ -5,10 +5,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 //This Item class, contains partnumber, quantity, result, and errorMessage.
-//When serializing XML file, partnumber, quantity will be used to make Item objects result and errorMessage
-// will be Null initially, then, after Item is validated, validated with DatabaseInterface,
-// checked with PARTMANAGER, results and errorMessage will be set accordingly.
+//When serializing XML file, partnumber, quantity will be set the the values in XML file and
+// result and errorMessage will be Null initially.
+//Then, after Item is validated, validated with DatabaseInterface, checked with PARTMANAGER,
+// results and errorMessage will be set accordingly.
 //Then, Item can be used for serializing into XML response files.
+
 @XmlRootElement(name="item")
 @XmlType(propOrder = {"partnumber","quantity","result","errorMessage"})
 public class Item {
@@ -58,9 +60,9 @@ public class Item {
         return errorMessage;
     }
 
-    //Validate item entry, I used Robert's Item Class' Validate method as reference, but I still wrote this myself.
-    //If any item entry lack the partnumber or quantity element, also if partnumber/quantity is not positive int,
-    //then it's invalid.
+    //Validate item entry, I used Robert Hawkey's Item Class' Validate method as reference, but I wrote this myself.
+    //If any item entry miss the partnumber or quantity element (is null),
+    // also if partnumber/quantity is not positive int, then it's invalid.
     public boolean validate(){
         if(partnumber == null || quantity == null)
             return false;

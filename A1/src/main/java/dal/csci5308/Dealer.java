@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name="dealer")
+@XmlRootElement(name="dealer")  //annotation for JAXB
 @XmlType(propOrder={"dealerid","dealeraccesskey"})
 public class Dealer {
     /*
@@ -18,6 +18,7 @@ public class Dealer {
 	<!-- A list of items order by the dealer. -->
     */
 
+    //fields
     private String dealerid;
     private String dealeraccesskey;
 
@@ -43,12 +44,10 @@ public class Dealer {
             return false;
         if(dealeraccesskey == null || dealeraccesskey.isEmpty())
             return false;
-
         return true;
     }
 
     //authorize the dealer, or authenticate dealer, whatever the word is
-    //call this method in other classes, by DealerObjectName.isDealerAuthorized(Security interface object);
     public boolean isDealerAuthorized(Security security){
         if(validate()){
             return security.IsDealerAuthorized(dealerid,dealeraccesskey);

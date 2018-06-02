@@ -15,7 +15,7 @@ import java.io.StringReader;
 //test dealer class
 public class DealerTest {
 
-    //these are the XML Strings I use to make Dealer OBJ and do tests
+    //these are the XML Strings I use to make Dealer object and do tests
     //this one is an authorized dealer
     static final String AUTHORIZED_STR = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
             "<dealer>\n" +
@@ -23,14 +23,14 @@ public class DealerTest {
             "	<dealeraccesskey>kkklas8882kk23nllfjj88290</dealeraccesskey>\n" +
             "</dealer>";
 
-    //unauthorized dealer because ID is wrong
+    //unauthorized dealer because ID is FAKE_DEALER_ID
     static final String UNAUTHORIZED_ID = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
             "<dealer>\n" +
             "	<dealerid>FAKE_DEALER_ID</dealerid>\n" +
             "	<dealeraccesskey>kkklas8882kk23nllfjj88290</dealeraccesskey>\n" +
             "</dealer>";
 
-    //unauthorized dealer because Key is wrong
+    //unauthorized dealer because Key is FAKE_DEALER_ACCESSKEY
     static final String UNAUTHORIZED_KEY = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
             "<dealer>\n" +
             "	<dealerid>XXX-1234-ABCD-1234</dealerid>\n" +
@@ -63,11 +63,11 @@ public class DealerTest {
             "	<dealerid>XXX-1234-ABCD-1234</dealerid>\n" +
             "</dealer>";
 
-    //this is the mock Security OBJ, call it authorizer
+    //this is the mock Security object, call it authorizer
     static Security authorizer;
 
     // This method is written by Robert Hawkey
-    // I borrowed this from Robert Hawkey's code, it is used to turn the XML Strings to Dealer OBJs
+    // I borrowed this from Robert Hawkey's lecture sample code, it is used to turn the XML Strings to Dealer objects
     Dealer deserializeXMLToDealerObject(String xml)
     {
         try
@@ -89,6 +89,16 @@ public class DealerTest {
     @BeforeAll
     static void initAll(){
         authorizer = new SecurityMock();
+    }
+
+    @Test
+    @DisplayName("Test gets and sets methods")
+    void getAndSetTest(){
+        Dealer dealer = new Dealer();
+        dealer.setDealerid("id");
+        dealer.setDealeraccesskey("key");
+        assertEquals("id",dealer.getDealerid());
+        assertEquals("key",dealer.getDealeraccesskey());
     }
 
     @Test

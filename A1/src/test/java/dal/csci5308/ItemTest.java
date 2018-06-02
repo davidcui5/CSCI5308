@@ -3,6 +3,8 @@ package dal.csci5308;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -87,7 +89,7 @@ public class ItemTest {
     //mock database interface
     static DatabaseInterface db;
 
-    // This method is written by Robert Hawkey
+    // This method is written by Robert Hawkey, it converts XML string to object
     Item deserializeXMLToItemObject(String xml)
     {
         try
@@ -111,6 +113,20 @@ public class ItemTest {
         db = new DatabaseInterfaceMock();
     }
 
+    @Test
+    @DisplayName("Test get and set methods")
+    void getAndSetTest(){
+        Item item = new Item();
+        item.setPartnumber("1111");
+        assertEquals("1111",item.getPartnumber());
+        item.setQuantity("11");
+        assertEquals("11",item.getQuantity());
+        item.setResult("success");
+        assertEquals("success",item.getResult());
+        item.setErrorMessage("");
+        assertEquals("",item.getErrorMessage());
+    }
+
     //tests: check for valid item, item with invalid partnumber, item missing partnumber/quantity,
     //empty partnumber/quantity, and non-positive integer partnumber/quantity
     @Test
@@ -120,6 +136,8 @@ public class ItemTest {
         assertNotNull(item);
         assertEquals("1234",item.getPartnumber());
         assertEquals("2",item.getQuantity());
+        assertEquals(null,item.getResult());
+        assertEquals(null,item.getErrorMessage());
         assertTrue(item.validate());
         assertTrue(item.validatePartnumber(db));
     }
@@ -131,6 +149,8 @@ public class ItemTest {
         assertNotNull(item);
         assertEquals("5678",item.getPartnumber());
         assertEquals("25",item.getQuantity());
+        assertEquals(null,item.getResult());
+        assertEquals(null,item.getErrorMessage());
         assertTrue(item.validate());
         assertTrue(!item.validatePartnumber(db));
     }
@@ -214,7 +234,4 @@ public class ItemTest {
         assertTrue(!item.validate());
         assertTrue(!item.validatePartnumber(db));
     }
-    //Item entry: If any item entry lack the partNumber or quantity element,
-    // then it's invalid. Also if partNumber is not positive integer, and quantity is not greater than 0.
-
 }
