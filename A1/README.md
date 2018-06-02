@@ -9,11 +9,17 @@ Requirement: Require Maven to build the project.
 
 XML FORMAT:
 if dealerid is FAKE_DEALER_ID  -> will not authorize
+
 if dealeraccesskey is FAKE_DEALER_ACCESSKEY  -> will not authorize
+
 other ids/keys  -> will authorize
+
 if partnumber is  -> 3456 Out of stock
+
 if 4567  -> No longer manufactured
+
 if 5678  -> invalid part
+
 Other partnumbers  -> success (if authorized and XML is valid)
 
 HOW TO RUN:
