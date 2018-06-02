@@ -33,3 +33,5 @@ For example, I run this: java -jar A1-1.0-SNAPSHOT.jar input.xml output.xml
 
 Then, I get my outputxml in output.xml.
 
+If you want to run tests again, go back to A1 folder, and use: mvn test
+
