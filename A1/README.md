@@ -7,7 +7,16 @@ I developed on IntelliJ.
 
 Requirement: Require Maven to build the project.
 
-How to run:
+XML FORMAT:
+if dealerid is FAKE_DEALER_ID  -> will not authorize
+if dealeraccesskey is FAKE_DEALER_ACCESSKEY  -> will not authorize
+other ids/keys  -> will authorize
+if partnumber is  -> 3456 Out of stock
+if 4567  -> No longer manufactured
+if 5678  -> invalid part
+Other partnumbers  -> success (if authorized and XML is valid)
+
+HOW TO RUN:
 1. Clone A1 folder somewhere. For example, by zip (unzip it afterwards) or by git.
 
 2. Enter A1 folder on command line, so the present working directory is A1.
@@ -34,4 +43,6 @@ For example, I run this: java -jar A1-1.0-SNAPSHOT.jar input.xml output.xml
 Then, I get my outputxml in output.xml.
 
 If you want to run tests again, go back to A1 folder, and use: mvn test
+
+
 
