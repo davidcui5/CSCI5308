@@ -4,34 +4,35 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
 //this Order object contains Dealer, orderitems (a list of Item), and DeliveryAddress
-//I use this class and JAXB to serialize XML order to Order object
+//I use this class and JAXB to deserialize XML order to Order object
 @XmlRootElement(name="order")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {"dealer","orderItems","deliveryAddress"})
 public class Order {
     @XmlElement(name="dealer")
-    Dealer dealer;
+    private Dealer dealer;
     @XmlElementWrapper(name="orderitems")
     @XmlElement(name="item")
-    ArrayList<Item> orderItems;
+    private ArrayList<Item> orderItems;
     @XmlElement(name="deliveryaddress")
-    DeliveryAddress deliveryAddress;
+    private DeliveryAddress deliveryAddress;
 
     //validate the orderItems, invalid if it's null (no orderitems element) or if it's empty (no items)
-    public boolean validateOrderList(){
+    public boolean validateOrderItems(){
         if (orderItems == null || orderItems.isEmpty())
             return false;
         else
             return true;
     }
 
+    //this is the logic for the processing of Order to make an OrderResponse
     public OrderResponse processOrder(){
         //0. Make OrderResponse Object
         OrderResponse response = new OrderResponse();
 
         //1. Authenticate dealer with Security mock
-        boolean authorized = dealer.isDealerAuthorized(new SecurityMock());
-        if(!authorized){
+        //if dealer is invalid (null) or if dealer is not authorized
+        if(dealer == null || !dealer.isDealerAuthorized(new SecurityMock())){
             //not authorized, make appropriate response and return it
             response.setResult("failure");
             response.setError("Not authorized");
@@ -40,9 +41,8 @@ public class Order {
 
         //2.1. Validate FORMAT of incoming order XML (Dealer authorized, so must be valid, only validate other elements
         //When validating, first check DeliveryAddress, then orderItems, then each Item entry
-        //check DeliveryAddress
-        boolean validAddr = deliveryAddress.validate();
-        if (!validAddr){
+        //check DeliveryAddress, it should not be null and it should be valid
+        if (deliveryAddress == null || !deliveryAddress.validate()){
             //DeliveryAddress NOT VALID, make response and return it
             response.setResult("failure");
             response.setError("Invalid order");
@@ -51,8 +51,7 @@ public class Order {
         }
 
         //check orderItems
-        boolean validList = validateOrderList();
-        if(!validList){
+        if(!validateOrderItems()){
             //orderItems list NOT VALID, make response and return it
             response.setResult("failure");
             response.setError("Invalid order");

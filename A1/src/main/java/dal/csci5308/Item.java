@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 //This Item class, contains partnumber, quantity, result, and errorMessage.
-//When serializing XML file, partnumber, quantity will be set the the values in XML file and
+//When deserializing XML file, partnumber, quantity will be set the the values in XML file and
 // result and errorMessage will be Null initially.
 //Then, after Item is validated, validated with DatabaseInterface, checked with PARTMANAGER,
 // results and errorMessage will be set accordingly.
