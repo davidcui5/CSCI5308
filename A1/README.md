@@ -8,6 +8,7 @@ I developed on IntelliJ.
 Requirement: Require Maven to build the project.
 
 XML FORMAT:
+
 if dealerid is FAKE_DEALER_ID  -> will not authorize
 
 if dealeraccesskey is FAKE_DEALER_ACCESSKEY  -> will not authorize
