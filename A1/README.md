@@ -1,6 +1,6 @@
-OS worked on: Windows 10
-Language Java 1.8
-Maven version 3.5.3
+OS worked on: Windows 10, 
+Language Java 1.8, 
+Maven version 3.5.3, 
 Student number: B00788648
 
 I used Maven so you can see POM.xml (in the A1 folder) for the libraries.
