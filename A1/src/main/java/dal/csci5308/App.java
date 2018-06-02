@@ -12,6 +12,11 @@ import java.io.File;
 public class App {
 
     public static void main (String[] args){
+        if(args.length != 2){
+            System.out.println("Need 2 command line arguments: inputFilename outputFilename");
+            return;
+        }
+
         String inputFileName = args[0];
         String outputFileName = args[1];
 
@@ -25,7 +30,7 @@ public class App {
         }
         catch (Exception e)
         {
-            System.out.println("Input XML file is invalid. Cannot parse into object.");
+            System.out.println("Input XML file is invalid, cannot parse into object.");
             return;
         }
 
