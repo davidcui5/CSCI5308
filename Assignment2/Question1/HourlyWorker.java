@@ -1,14 +1,14 @@
-public class HourlyWorker
+public class HourlyWorker implements IWorker
 {
-	private float hourlyRate;
+    private float hourlyRate;
 
-	public HourlyWorker()
-	{
-		hourlyRate = 10.0f;
-	}
+    public HourlyWorker()
+    {
+        hourlyRate = 10.0f;
+    }
 
-	public float calculatePay(int hours)
-	{
-		return hourlyRate * hours;
-	}
+    public float calculatePay(int hours)
+    {
+        return hourlyRate * hours;
+    }
 }

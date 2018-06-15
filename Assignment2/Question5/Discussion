@@ -1,0 +1,17 @@
+Principle: Open/Closed Principle
+
+a. Why:
+    1. CountryGDPReport depends on Canada and Mexico class, they are very coupled. As seen in printCountryGDPReport()
+        method.
+    2. This means if Canada or Mexico is changed, maybe they both need a getMining() method, then CountryGDPReport
+        needs to be changed, so CountryGDPReport is not closed for modification and not open for extension.
+
+b. Solution:
+    1. Include a getGDPReport() method in Canada and Mexico, this method returns a String that has the Country's name
+        and GDPs in different sectors. Now, CountryGDPReport only has to call the getGDPReport() method in its
+        printCountryGDPReport() method. It does not need to know which sectors each Country has.
+    2. So, if Mexico or Canada change and implementations of getGDPReport change, CountryGDPReport doesn't have to
+        change.
+    3. I also made ICountry interface, which has getGDPReport() signature, this makes the addition of more countries in
+        CountryGDPReport easier, making it more closed for modification and more open for extension, also follows
+        dependency inversion.

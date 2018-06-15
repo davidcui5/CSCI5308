@@ -1,30 +1,17 @@
-import java.time.Duration;
-import java.util.ArrayList;
-
-public class Book implements ILibraryItem
+public class Book implements IBook
 {
-	public Duration GetPlayTime()
-	{
-		return Duration.ZERO;
-	}
+    public String getAuthor()
+    {
+        return "Hemingway";
+    }
 
-	public String GetAuthor()
-	{
-		return "Hemingway";
-	}
+    public String getTitle()
+    {
+        return "For Whom The Bell Tolls";
+    }
 
-	public String GetTitle()
-	{
-		return "For Whom The Bell Tolls";
-	}
-
-	public boolean IsDigitalOnly()
-	{
-		return false;
-	}
-
-	public ArrayList<String> GetCastList()
-	{
-		return null;
-	}
+    public boolean isDigitalOnly()
+    {
+        return false;
+    }
 }

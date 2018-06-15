@@ -1,0 +1,14 @@
+Principle: Interface Segregation Principle
+
+a. Why:
+    1. ILibraryItem interface is too general, for example, it has getAuthor but DVD class does not have author,
+        it has getPlayTime but Book class has no play time, therefore more specific interfaces should be used.
+
+b. Solution:
+    1. Change ILibraryItem interface so it only includes the methods that all LibraryItems should have,
+        which should be getTitle and isDigitalOnly.
+    2. Create specific interfaces for DVD and Book, these interfaces extends ILibraryItem interface,
+        they are IDVD and IBook interfaces.
+    3. IDVD has the methods unique to DVD, which are getPlayTime and getCastList, DVD class should implement IDVD.
+    4. IBook has methods unique to Book, which is getAuthor, Book class implements IBook.
+    5. Also made method names camelCase to follow Java convention.

@@ -1,0 +1,18 @@
+Principle: Liskov Substitution Principle
+
+a. Why:
+    1. The subclass USDollarAccount behave differently than the superclass BankAccount, so if I substitute BankAccount
+        object with USDollarAccount object, the code will not work as intended.
+    2. For example, if I credit 100 in BankAccount, getBalance returns 100, but if I credit 100 in USDollarAccount,
+        getBalance returns 75.
+
+b. Solution:
+    1. Make exchangeRate a field in BankAccount class.
+    2. Add a constructor in BankAccount, public BankAccount(float exchangeRate), which sets exchangeRate.
+    3. Change credit/debit so they reflect exchangeRate.
+    4. Change USDollarAccount so it only has a constructor, which takes in an exchangeRate and calls superclass'
+        constructor with the rate.
+    5. Now, USDollarAccount can substitute BankAccount, new BankAccount(1.00f) is same as new USDollarAccount(1.00f).
+    6. The cost is that the correct exchangeRate should be provided when instantiating the classes. However, I think
+        that's not an issue as we can put these rates at some config file and read from there.
+    7. Also changed fields from protected to private

@@ -1,0 +1,21 @@
+Principle: Single Responsibility Principle
+
+a. Why:
+    1. Each class should have single responsibility, ProfitReport class however has 3 responsibilities right now,
+        which are ProfitReport, SendToPrinter, and SendToEmail.
+    2. SendToPrinter and SendToEmail should not be responsibility of ProfitReport class.
+
+b. Solution:
+    1. Have 3 classes, ProfitReport, EmailSender, PrintJobSender.
+    2. ProfitReport has reportData, createReport, getReportData.
+    3. EmailSender has sendEmail(String emailAddress, String subject, ArrayList<String> reportData),
+        which sends reportData in an email.
+    4. PrintJobSender has sendPrintJob(ArrayList<String> reportData), which sends reportData to printer.
+    5. More specifically, I did these things so each class has single responsibility:
+        a. Removed SendToEmail and SendToPrinter in ProfitReport class.
+        b. Added a getReportData method in ProfitReport to allow other classes to access reportData.
+        c. Changed EmailSender class, so its sendEmail method now takes in reportData, formats it, and send it as email.
+        d. Added a PrintJobSender class which has sendPrintJob method that takes reportData as input, format the data
+            and send print job to printer.
+    6. Now, ProfitReport class only does ProfitReport things, EmailSender does email sending, and PrintJobSender does
+        print job sending.
