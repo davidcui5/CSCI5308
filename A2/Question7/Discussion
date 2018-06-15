@@ -1,0 +1,13 @@
+Principle: Interface Segregation Principle
+
+a. Why:
+    1. IInsect interface is too general, it has swim() and fly() methods but not all insects can swim and fly,
+        more specific interfaces should be used.
+
+b. Solution:
+    1. Change IInsect so it only has moveAntennae() because moveAntennae is common to all insects.
+    2. Create ISwimmable interface which extends IInsect and has swim() method, let AquaticInsect implements
+        ISwimmable, and remove fly().
+    3. Create IFlyable interface which extends IInsect and has fly() method, let FlyingInsect implements IFlyable,
+        and remove swim().
+    4. This means we have swimmable and flyable insects, which is more specific.

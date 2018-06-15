@@ -9,7 +9,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 //Added a PrintJobSender class which has sendPrintJob method that takes reportData as input, format the data and send print job to printer.
-public class PrintJobSender {
+public class PrintJobSender
+{
     public void sendPrintJob(ArrayList<String> reportData)
     {
         try

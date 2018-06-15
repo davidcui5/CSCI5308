@@ -1,11 +1,11 @@
 public class AquaticInsect implements ISwimmable
 {
-	public void Swim()
+	public void swim()
 	{
 		System.out.println("Sploosh!");
 	}
 
-	public void MoveAntennae()
+	public void moveAntennae()
 	{
 		System.out.println("Moving my antennae underwater!");
 	}

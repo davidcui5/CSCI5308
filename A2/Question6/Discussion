@@ -1,0 +1,17 @@
+Principle: Single Responsibility Principle
+
+a. Why:
+    1. PiggyBank class breaks single responsibility principle because it also does saving and loading.
+    2. PiggyBank should just store coins and allow coins to be added, and has accessor and mutator methods for
+        number of coins.
+    3. Saving and Loading should be done by other classes.
+
+b. Solution:
+    1. Solution is basically putting Save and Load method in other classes, so each class has one responsibility.
+    2. I think it's logical to put Save in one class, and put Load in another one class, similar to how Java has
+        FileReader for reading (loading), and FileWriter for writing (saving).
+    3. I call my Save class PiggyBankTextSaver because it saves PiggyBank to text file.
+    4. I call my Load class PiggyBankTextLoader for same reason.
+    5. I also made fileName and encoding a variable instead of hardcoding because we want to avoid hardcoding.
+    6. Saver and Loader classes don't have any fields for now, so I made the methods static.
+    7. Save and Load method need to use PiggyBank objects, so I added gets and sets methods in PiggyBank.
