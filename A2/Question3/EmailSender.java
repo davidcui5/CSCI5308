@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
-//Changed EmailSender class, so its sendEmail method now takes in reportData, formats it, and send it as email.
+//Changed EmailSender class, so its sendEmail method now takes in ProfitReport, formats reportData, and send it as email.
 public class EmailSender
 {
-    public void sendEmail(String emailAddress, String subject, ArrayList<String> reportData)
+    public void sendEmail(String emailAddress, String subject, ProfitReport report)
     {
         try
         {
+            ArrayList<String> reportData = report.getReportData();
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < reportData.size(); i++)
             {

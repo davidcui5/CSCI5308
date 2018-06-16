@@ -8,13 +8,15 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-//Added a PrintJobSender class which has sendPrintJob method that takes reportData as input, format the data and send print job to printer.
+//Added a PrintJobSender class which has sendPrintJob method that takes ProfitReport as input,
+// format the data and send print job to printer.
 public class PrintJobSender
 {
-    public void sendPrintJob(ArrayList<String> reportData)
+    public void sendPrintJob(ProfitReport report)
     {
         try
         {
+            ArrayList<String> reportData = report.getReportData();
             String defaultPrinter = PrintServiceLookup.lookupDefaultPrintService().getName();
             PrintService service = PrintServiceLookup.lookupDefaultPrintService();
             StringBuilder builder = new StringBuilder();
