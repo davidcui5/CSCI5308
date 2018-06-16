@@ -25,7 +25,7 @@ public class ProfitReport
     }
 
     public ArrayList<String> getReportData()
-	{
-    	return reportData;
-	}
+    {
+        return reportData;
+    }
 }
