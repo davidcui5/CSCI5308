@@ -1,6 +1,7 @@
 public class USDollarAccount extends BankAccount
 {
-    public USDollarAccount(){
+    public USDollarAccount()
+    {
         exchangeRate = 0.75f;
     }
 }
