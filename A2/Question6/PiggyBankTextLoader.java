@@ -1,7 +1,8 @@
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class PiggyBankTextLoader {
+public class PiggyBankTextLoader
+{
     //load PiggyBank from file, returns it, returns null if something is wrong.
     public static PiggyBank load(String fileName)
     {

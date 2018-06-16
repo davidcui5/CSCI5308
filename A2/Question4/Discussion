@@ -1,18 +1,25 @@
 Principle: Liskov Substitution Principle
 
 a. Why:
-    1. The subclass USDollarAccount behave differently than the superclass BankAccount, so if I substitute BankAccount
-        object with USDollarAccount object, the code will not work as intended.
-    2. For example, if I credit 100 in BankAccount, getBalance returns 100, but if I credit 100 in USDollarAccount,
+    1. The superclass BankAccount does not indicate any use of exchangeRate, however, the subclass USDollarAccount
+        has exchangeRate, this is problematic, because a user of superclass does not know about exchangeRate, and if
+        we give user a subclass instead of superclass, the user's code will break because user know nothing about
+        exchange rate, and user's code does not consider exchange rate.
+    2. In this perspective, the subclass USDollarAccount behave differently than the superclass BankAccount,
+        so if user substitute BankAccount object with USDollarAccount object, the code will not work as intended.
+    3. For example, if user credit 100 in BankAccount, getBalance returns 100, but if user credit 100 in USDollarAccount,
         getBalance returns 75.
 
 b. Solution:
-    1. Make exchangeRate a field in BankAccount class.
-    2. Add a constructor in BankAccount, public BankAccount(float exchangeRate), which sets exchangeRate.
-    3. Change credit/debit so they reflect exchangeRate.
-    4. Change USDollarAccount so it only has a constructor, which takes in an exchangeRate and calls superclass'
-        constructor with the rate.
-    5. Now, USDollarAccount can substitute BankAccount, new BankAccount(1.00f) is same as new USDollarAccount(1.00f).
-    6. The cost is that the correct exchangeRate should be provided when instantiating the classes. However, I think
-        that's not an issue as we can put these rates at some config file and read from there.
-    7. Also changed fields from protected to private
+    1. My solution is to add exchangeRate as a protected field in BankAccount (base class) and also a getExchangeRate()
+        method.
+    2. Add constructor in superclass and subclass, each setting exchangeRate to the respective values (1.00f, 0,75f).
+    3. Change credit/debit method in superclass to reflect effect of exchangeRate.
+    4. Change USDollarAccount so it only has a constructor which sets exchangeRate to 0.75f.
+    5. The benefit of this is now a user of the superclass knows about the exchangeRate, so when the user writes code,
+        user must consider the exchangeRate in his code. For example, now if a user want balance, he/she will use
+        object.getBalance()/object.getExchangeRate(), and now he/she can switch the superclass object with subclass
+        object without breaking his/her code.
+    6. Basically, the usage of the classes are changed, which asks users to consider exchangeRate when writing codes,
+        and therefore, the classes will follow Liskov Principle.
+

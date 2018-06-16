@@ -1,3 +1,4 @@
-public interface ICountry {
+public interface ICountry
+{
     public String getGDPReport();
 }

@@ -33,35 +33,43 @@ public class PiggyBank
         numQuarters += 1;
     }
 
-    public void setNumPennies(int numPennies) {
+    public void setNumPennies(int numPennies)
+    {
         this.numPennies = numPennies;
     }
 
-    public int getNumPennies(){
-    	return numPennies;
-	}
+    public int getNumPennies()
+    {
+        return numPennies;
+    }
 
-    public void setNumDimes(int numDimes) {
+    public void setNumDimes(int numDimes)
+    {
         this.numDimes = numDimes;
     }
 
-    public int getNumDimes() {
-		return numDimes;
-	}
+    public int getNumDimes()
+    {
+        return numDimes;
+    }
 
-    public void setNumNickels(int numNickels) {
+    public void setNumNickels(int numNickels)
+    {
         this.numNickels = numNickels;
     }
 
-    public int getNumNickels() {
-		return numNickels;
-	}
+    public int getNumNickels()
+    {
+        return numNickels;
+    }
 
-    public void setNumQuarters(int numQuarters) {
+    public void setNumQuarters(int numQuarters)
+    {
         this.numQuarters = numQuarters;
     }
 
-    public int getNumQuarters() {
-		return numQuarters;
-	}
+    public int getNumQuarters()
+    {
+        return numQuarters;
+    }
 }

@@ -1,6 +1,7 @@
 import java.io.PrintWriter;
 
-public class PiggyBankTextSaver {
+public class PiggyBankTextSaver
+{
     //save PiggyBank to a file with an encoding.
     public static void save(PiggyBank bank, String fileName, String encoding)
     {
