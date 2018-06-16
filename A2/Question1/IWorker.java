@@ -1,3 +1,4 @@
-public interface IWorker {
+public interface IWorker
+{
     float calculatePay(int hours);
 }

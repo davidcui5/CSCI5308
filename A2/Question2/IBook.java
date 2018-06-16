@@ -1,3 +1,4 @@
-public interface IBook extends  ILibraryItem{
+public interface IBook extends  ILibraryItem
+{
     public String getAuthor();
 }

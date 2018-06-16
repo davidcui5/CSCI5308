@@ -1,5 +1,5 @@
 public interface ILibraryItem
 {
     public String getTitle();
-	public boolean isDigitalOnly();
+    public boolean isDigitalOnly();
 }
