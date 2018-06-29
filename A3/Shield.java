@@ -24,9 +24,11 @@ public class Shield extends ComponentDecorator
 	@Override
 	public void Update(int x, int y)
 	{
-		if(GetX()==x && GetY()==y) {
+		if(GetX()==x && GetY()==y)
+		{
 			shieldHealth--;
-			if (shieldHealth == 0) {
+			if (shieldHealth == 0)
+			{
 				ArrayList<BoardComponent> row = GameBoard.Instance().GetBoard().get(y);
 				row.set(x, decoratedComponent);
 				Detach();

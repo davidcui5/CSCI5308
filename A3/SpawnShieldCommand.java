@@ -18,19 +18,19 @@ public class SpawnShieldCommand extends Command
 		System.out.println("Spawning shield at (" + args[0] + "," + args[1] + ")");
 
 		//get the Square we want to decorate using its grid position x,y
-        int x = Integer.parseInt(args[0]);
-        int y = Integer.parseInt(args[1]);
-        BoardComponent square = board.GetBoard().get(y).get(x);
+		int x = Integer.parseInt(args[0]);
+		int y = Integer.parseInt(args[1]);
+		BoardComponent square = board.GetBoard().get(y).get(x);
 
 		//singleton factory create shieldedSquare
 		IAsteroidGameFactory factory = GameBoard.Instance().GetFactory();
-        BoardComponent shieldedSquare = factory.MakeShield(square);
+		BoardComponent shieldedSquare = factory.MakeShield(square);
 
-        //replace square with shieldedSquare inside board
-        ArrayList<BoardComponent> row = board.GetBoard().get(y);
-        row.set(x,shieldedSquare);
+		//replace square with shieldedSquare inside board
+		ArrayList<BoardComponent> row = board.GetBoard().get(y);
+		row.set(x,shieldedSquare);
 
-        //Attach shield to Subject (note this also detaches the square and its children)
+		//Attach shield to Subject (note this also detaches the square and its children)
 		shieldedSquare.Attach();
 	}
 }

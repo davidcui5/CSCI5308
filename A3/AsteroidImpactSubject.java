@@ -15,8 +15,8 @@ public class AsteroidImpactSubject implements ISubject
     }
 
     //Attaching and Detaching Observers happens at these times:
-    //  Building: Detach when shielded, and when destroyed. Attach when spawned and when shield is gone.
-    //  Asteroid: Detach when impact ground. Attach when spawned.
+    //  Building: Detach when shielded and when destroyed. Attach when spawned and when shield is gone.
+    //  Asteroid: Detach when shielded and when impact ground. Attach when spawned and when shield is gone.
     //  Square: Detach only when shielded. Attach when spawned and when shield is gone.
     //  Shield: Detach when destroyed. Attach when spawned.
     @Override

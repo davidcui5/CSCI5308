@@ -8,8 +8,11 @@ public interface IAsteroidGameFactory
 	public BoardComponent MakeSquare(int x, int y);
 	//Added MakeShield to Factory, because we use AbstractFactory pattern, so Factory should do object creation
 	public BoardComponent MakeShield(BoardComponent squareToDecorate);
+	//now requires x, y grid position
 	public BoardComponent MakeBuilding(int x, int y);
+	//now requires x, y grid position
 	public Asteroid MakeAsteroid(int x, int y, int height);
+
 	public ArrayList<ArrayList<BoardComponent>> MakeBoard(int height, int width);
 	public Command MakeCommand(String commandLine);
 }

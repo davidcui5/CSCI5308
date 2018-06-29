@@ -18,6 +18,7 @@ public class AsteroidGameFactory implements IAsteroidGameFactory
 		return new Shield(squareToDecorate);
 	}
 
+	//now requires x, y grid position
 	@Override
 	public BoardComponent MakeBuilding(int x, int y)
 	{
@@ -25,6 +26,7 @@ public class AsteroidGameFactory implements IAsteroidGameFactory
 		return building;
 	}
 
+	//now requires x, y grid position
 	@Override
 	public Asteroid MakeAsteroid(int x, int y, int height)
 	{

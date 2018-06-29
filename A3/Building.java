@@ -3,7 +3,8 @@
 public class Building extends BoardComponent
 {
 	private int buildingHealth;
-	
+
+	//now requires x, y
 	public Building(int x, int y)
 	{
 		super(x, y);

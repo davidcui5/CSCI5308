@@ -18,7 +18,7 @@ public abstract class ComponentDecorator extends BoardComponent
 	@Override
 	public void Operation()
 	{
-        decoratedComponent.Operation();
+		decoratedComponent.Operation();
 	}
 
 	//default: calls BoardComponent's Update
@@ -32,14 +32,14 @@ public abstract class ComponentDecorator extends BoardComponent
 	@Override
 	public void Add(BoardComponent child)
 	{
-        decoratedComponent.Add(child);
+		decoratedComponent.Add(child);
 	}
 
 	//default: calls BoardComponent's Remove
 	@Override
 	public void Remove(BoardComponent child)
 	{
-        decoratedComponent.Remove(child);
+		decoratedComponent.Remove(child);
 	}
 
 	@Override
