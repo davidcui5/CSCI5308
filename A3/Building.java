@@ -17,6 +17,16 @@ public class Building extends BoardComponent
 	}
 
 	@Override
+	public void Update()
+	{
+		buildingHealth--;
+		if(buildingHealth==0)
+		{
+			parent.Remove(this);
+		}
+	}
+
+	@Override
 	public void Add(BoardComponent child)
 	{
 		// Do nothing, I'm a leaf.

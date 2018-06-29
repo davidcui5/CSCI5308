@@ -12,6 +12,7 @@ public class GameBoard
 	private final IAsteroidGameFactory factory;
 	private int buildingCount;
 	private IState gameState;
+	private ISubject asteroidImpact;
 	
 	// The one way to get the Singleton
 	public static GameBoard Instance()
@@ -33,6 +34,7 @@ public class GameBoard
 		factory = new AsteroidGameFactory();
 		buildingCount = 0;
 		gameState = new SetupState();
+		asteroidImpact = new AsteroidImpactSubject();
 	}
 	
 	public ArrayList<ArrayList<BoardComponent>> GetBoard()
@@ -48,6 +50,11 @@ public class GameBoard
 	public IAsteroidGameFactory GetFactory()
 	{
 		return factory;
+	}
+
+	public ISubject GetAsteroidImpact()
+	{
+		return asteroidImpact;
 	}
 	
 	// This processses the input command file, using the factory to make
