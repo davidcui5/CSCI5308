@@ -2,10 +2,11 @@
 public class Asteroid extends BoardComponent
 {
 	private int height;
-	
-	public Asteroid(int height)
+
+	//Added grid position x, y
+	public Asteroid(int x, int y, int height)
 	{
-		super();
+		super(x, y);
 		this.height = height;
 	}
 	
@@ -22,17 +23,19 @@ public class Asteroid extends BoardComponent
 			// observer to tell it that it impacted the ground in the square it belongs
 			// to.
 			// <-- Send event to observer.
-			GameBoard.Instance().GetAsteroidImpact().Notify();
+			GameBoard.Instance().GetAsteroidImpact().Notify(GetX(), GetY());
 			// It should then remove itself from its parent, it no longer exists in the
 			// hierarchy and should not receive any more operations.
-			parent.Remove(this);		
+			parent.Remove(this);
+			// It also detach itself from Subject
+			Detach();
 		}
 	}
 
 	@Override
-	public void Update()
+	public void Update(int x, int y)
 	{
-		//Asteroid don't update
+		//Asteroid don't do anything with Update
 	}
 
 	@Override
@@ -45,5 +48,17 @@ public class Asteroid extends BoardComponent
 	public void Remove(BoardComponent child)
 	{
 		// I'm a leaf!
-	}	
+	}
+
+	@Override
+	public void Attach()
+	{
+		GameBoard.Instance().GetAsteroidImpact().Attach(this);
+	}
+
+	@Override
+	public void Detach()
+	{
+		GameBoard.Instance().GetAsteroidImpact().Detach(this);
+	}
 }

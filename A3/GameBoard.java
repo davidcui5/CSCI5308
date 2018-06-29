@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.*;
 import java.nio.file.*;
+// I added my Subject for the Observer pattern here to the Singleton.
 
 // This is the Singleton that implements the game, it glues all the patterns together.
 public class GameBoard
@@ -12,6 +13,7 @@ public class GameBoard
 	private final IAsteroidGameFactory factory;
 	private int buildingCount;
 	private IState gameState;
+	//The Subject for asteroidImpact
 	private ISubject asteroidImpact;
 	
 	// The one way to get the Singleton
@@ -34,6 +36,7 @@ public class GameBoard
 		factory = new AsteroidGameFactory();
 		buildingCount = 0;
 		gameState = new SetupState();
+		//instantiate new AsteroidImpactSubject
 		asteroidImpact = new AsteroidImpactSubject();
 	}
 	
@@ -52,6 +55,7 @@ public class GameBoard
 		return factory;
 	}
 
+	//get the Subject
 	public ISubject GetAsteroidImpact()
 	{
 		return asteroidImpact;

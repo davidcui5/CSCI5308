@@ -2,16 +2,35 @@
 public abstract class BoardComponent
 {
 	protected BoardComponent parent;
-	
-	public BoardComponent()
+	//Changed so BoardComponent keep their grid position x, y
+	private int x;
+	private int y;
+
+	public BoardComponent(int x, int y)
 	{
 		parent = null;
+		this.x = x;
+		this.y = y;
 	}
 	
 	public abstract void Operation();
-	public abstract void Update();
+	//Added Update() which is required for Observer pattern
+	public abstract void Update(int x, int y);
 	public abstract void Add(BoardComponent child);
 	public abstract void Remove(BoardComponent child);
+	//Attach and Detach methods for BoardComponent to Attach and Detach to Subject
+	public abstract void Attach();
+	public abstract void Detach();
+
+	public int GetX()
+	{
+		return x;
+	}
+
+	public int GetY()
+	{
+		return y;
+	}
 	
 	public void SetParent(BoardComponent parent)
 	{

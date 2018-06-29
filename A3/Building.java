@@ -4,9 +4,9 @@ public class Building extends BoardComponent
 {
 	private int buildingHealth;
 	
-	public Building()
+	public Building(int x, int y)
 	{
-		super();
+		super(x, y);
 		buildingHealth = 2;
 	}
 
@@ -16,13 +16,23 @@ public class Building extends BoardComponent
 		// Buildings just stand there, they don't do anything.
 	}
 
+	//ADDED Update() which is for the Observer pattern
+	// Update do something only if Asteroid impacted same x, y
+	// If Asteroid impact same x, y, building health --,
+	// if health is 0, building is removed from Square and detached from Subject,
+	// also decrement building count.
 	@Override
-	public void Update()
+	public void Update(int x, int y)
 	{
-		buildingHealth--;
-		if(buildingHealth==0)
+		if(GetX()==x && GetY()==y)
 		{
-			parent.Remove(this);
+			buildingHealth--;
+			if(buildingHealth==0)
+			{
+				parent.Remove(this);
+				Detach();
+				GameBoard.Instance().DecrementBuildingCount();
+			}
 		}
 	}
 
@@ -36,5 +46,17 @@ public class Building extends BoardComponent
 	public void Remove(BoardComponent child)
 	{
 		// Do nothing, I'm a leaf.
+	}
+
+	@Override
+	public void Attach()
+	{
+		GameBoard.Instance().GetAsteroidImpact().Attach(this);
+	}
+
+	@Override
+	public void Detach()
+	{
+		GameBoard.Instance().GetAsteroidImpact().Detach(this);
 	}
 }

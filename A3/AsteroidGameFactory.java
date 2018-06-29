@@ -4,26 +4,35 @@ import java.util.ArrayList;
 // Implementation of the Abstract Factory pattern's interface
 public class AsteroidGameFactory implements IAsteroidGameFactory
 {
+	//MakeSquare now requires x, y grid position
 	@Override
-	public BoardComponent MakeSquare()
+	public BoardComponent MakeSquare(int x, int y)
 	{
-		return new Square();
+		return new Square(x, y);
+	}
+
+	//Added
+	@Override
+	public BoardComponent MakeShield(BoardComponent squareToDecorate)
+	{
+		return new Shield(squareToDecorate);
 	}
 
 	@Override
-	public BoardComponent MakeBuilding()
+	public BoardComponent MakeBuilding(int x, int y)
 	{
-		Building building = new Building();
+		Building building = new Building(x, y);
 		return building;
 	}
 
 	@Override
-	public Asteroid MakeAsteroid(int height)
+	public Asteroid MakeAsteroid(int x, int y, int height)
 	{
-		Asteroid asteroid = new Asteroid(height);
+		Asteroid asteroid = new Asteroid(x, y, height);
 		return asteroid;
 	}
-	
+
+	//Changed that x, y should be given to MakeSquare as arguments.
 	@Override
 	public ArrayList<ArrayList<BoardComponent>> MakeBoard(int height, int width)
 	{
@@ -35,7 +44,11 @@ public class AsteroidGameFactory implements IAsteroidGameFactory
 			// Add squares equal to the width to the row.
 			for (int j = 0; j < width; j++)
 			{
-				row.add(MakeSquare());
+				//column (x) is j, row (y) is i
+				BoardComponent square = MakeSquare(j,i);
+				row.add(square);
+				//also attach square to Subject as an Observer
+				square.Attach();
 			}
 			board.add(row);
 		}
