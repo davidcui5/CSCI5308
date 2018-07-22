@@ -27,7 +27,7 @@ public class Person
 	}
 	public String GetPhoneNumber()
 	{
-		if (areaCode != null && areaCode != "")
+		if (areaCode != null && !areaCode.equals(""))
 		{
 			return "(" + areaCode + ") " + phoneNumber; 
 		}
@@ -39,8 +39,10 @@ public class Person
 		this.userName = userName;
 		this.password = password;
 	}
+
 	public boolean AuthenticateUser()
 	{
-		return (userName.equals("joe") && password.equals("joepass"));
+		IAuthenticator auth = new Authenticator();
+		return auth.authenticate(userName,password);
 	}
 }
