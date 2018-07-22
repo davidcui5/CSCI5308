@@ -2,7 +2,7 @@ public class Help
 {
 	public String GetHelp(String command)
 	{
-		if (command != null || command.length() == 0)
+		if (command != null && command.length() != 0)
 		{
 			switch (command)
 			{

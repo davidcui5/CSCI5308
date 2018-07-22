@@ -8,6 +8,10 @@
 *.iml
 *.iws
 *.ipr
+
+#class
+*.class
+*.txt
  
 # Mac
 .DS_Store
