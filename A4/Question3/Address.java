@@ -36,6 +36,6 @@ public class Address
 	public boolean Equals(Address address)
 	{
 		return street.equals(address.GetStreet()) && city.equals(address.GetCity()) &&
-				province.equals(address.GetProvince()) && postalCode.equals(address.GetPostalCode());
+			province.equals(address.GetProvince()) && postalCode.equals(address.GetPostalCode());
 	}
 }
