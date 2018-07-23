@@ -1,11 +1,13 @@
 public class DivideOperation extends MathOperation
 {
-	public DivideOperation(int leftOperand, int rightOperand){
+	public DivideOperation(int leftOperand, int rightOperand)
+	{
 		super(leftOperand, rightOperand);
 	}
 
 	@Override
-	public int GetResult() {
-		return getLeftOperand() / getRightOperand();
+	public int GetResult()
+	{
+		return GetLeftOperand() / GetRightOperand();
 	}
 }

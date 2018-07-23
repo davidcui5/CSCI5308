@@ -9,13 +9,17 @@ public abstract class MathOperation
 		this.rightOperand = rightOperand;
 	}
 
-	public int getLeftOperand() {
+	public int GetLeftOperand()
+	{
 		return leftOperand;
 	}
 
-	public int getRightOperand() {
+	public int GetRightOperand()
+	{
 		return rightOperand;
 	}
 
+	//operation enum types are replaced by subclasses doing different operations
+	//subclasses override this for different operations
 	public abstract int GetResult();
 }

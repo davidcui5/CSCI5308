@@ -1,11 +1,13 @@
 public class SubtractOperation extends MathOperation
 {
-	public SubtractOperation(int leftOperand, int rightOperand){
+	public SubtractOperation(int leftOperand, int rightOperand)
+	{
 		super(leftOperand, rightOperand);
 	}
 
 	@Override
-	public int GetResult() {
-		return getLeftOperand() - getRightOperand();
+	public int GetResult()
+	{
+		return GetLeftOperand() - GetRightOperand();
 	}
 }
