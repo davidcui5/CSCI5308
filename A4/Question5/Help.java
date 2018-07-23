@@ -3,8 +3,10 @@ import java.util.Map;
 
 public class Help
 {
+	//Command is abstract base class
 	private Map<String, Command> map;
 
+	//adds concrete Command to map
 	public Help()
 	{
 		map = new HashMap<String, Command>();
@@ -13,6 +15,7 @@ public class Help
 		map.put("close", new CloseCommand());
 	}
 
+	//replaced the switch statement with polymorphism
 	public String GetHelp(String command)
 	{
 		if(map.containsKey(command))
