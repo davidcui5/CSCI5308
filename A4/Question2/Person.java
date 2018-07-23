@@ -1,48 +1,47 @@
 public class Person
 {
+	//extracted new classes, PhoneContact and LoginCredential
 	private String name;
-
-	private String areaCode;
-	private String phoneNumber;
-
-	private String userName;
-	private String password;
+	private PhoneContact phoneContact;
+	private LoginCredential loginCredential;
 
 	public Person(String name)
 	{
 		this.name = name;
+		phoneContact = new PhoneContact();
+		loginCredential = new LoginCredential();
 	}
 
 	public void SetAreaCode(String areaCode)
 	{
-		this.areaCode = areaCode;
+		phoneContact.SetAreaCode(areaCode);
 	}
+
 	public String GetAreaCode()
 	{
-		return areaCode;
+		return phoneContact.GetAreaCode();
 	}
+
 	public void SetPhoneNumber(String phoneNumber)
 	{
-		this.phoneNumber = phoneNumber;
+		phoneContact.SetPhoneNumber(phoneNumber);
 	}
+
 	public String GetPhoneNumber()
 	{
-		if (areaCode != null && !areaCode.equals(""))
-		{
-			return "(" + areaCode + ") " + phoneNumber; 
-		}
-		return phoneNumber;
+		return phoneContact.GetPhoneNumber();
 	}
 
 	public void SetLoginCredentials(String userName, String password)
 	{
-		this.userName = userName;
-		this.password = password;
+		loginCredential.SetUserName(userName);
+		loginCredential.SetPassword(password);
 	}
 
+	//extracted class to do authentication
 	public boolean AuthenticateUser()
 	{
 		IAuthenticator auth = new Authenticator();
-		return auth.authenticate(userName,password);
+		return auth.Authenticate(loginCredential);
 	}
 }

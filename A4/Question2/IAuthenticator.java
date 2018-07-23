@@ -1,3 +1,4 @@
-public interface IAuthenticator {
-	boolean authenticate(String userName, String password);
+public interface IAuthenticator
+{
+	boolean Authenticate(LoginCredential credential);
 }

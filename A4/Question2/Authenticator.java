@@ -1,6 +1,8 @@
-public class Authenticator implements IAuthenticator {
+public class Authenticator implements IAuthenticator
+{
 	@Override
-	public boolean authenticate(String userName, String password) {
-		return (userName.equals("joe") && password.equals("joepass"));
+	public boolean Authenticate(LoginCredential credential)
+	{
+		return (credential.GetUserName().equals("joe") && credential.GetPassword().equals("joepass"));
 	}
 }
