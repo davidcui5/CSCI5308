@@ -1,5 +1,6 @@
 public class Person
 {
+	//this person has an address, which is a parameter object
 	private String name;
 	private Address address;
 
@@ -17,6 +18,6 @@ public class Person
 	private boolean IsRobsAddress(Address personsAddress)
 	{
 		Address robsAddress = new Address("Rob street","Rob city","Rob province","Rob postalcode");
-		return personsAddress.equals(robsAddress);
+		return personsAddress.Equals(robsAddress);
 	}
 }

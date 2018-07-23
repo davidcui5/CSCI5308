@@ -1,34 +1,41 @@
-public class Address {
+public class Address
+{
 	private String street;
 	private String city;
 	private String province;
 	private String postalCode;
 
-	public Address(String street, String city, String province, String postalCode){
+	public Address(String street, String city, String province, String postalCode)
+	{
 		this.street = street;
 		this.city = city;
 		this.province = province;
 		this.postalCode = postalCode;
 	}
 
-	public String getStreet() {
+	public String GetStreet()
+	{
 		return street;
 	}
 
-	public String getCity() {
+	public String GetCity()
+	{
 		return city;
 	}
 
-	public String getProvince() {
+	public String GetProvince()
+	{
 		return province;
 	}
 
-	public String getPostalCode() {
+	public String GetPostalCode()
+	{
 		return postalCode;
 	}
 
-	public boolean equals(Address address) {
-		return this.street.equals(address.getStreet()) && this.city.equals(address.getCity()) &&
-				this.province.equals(address.getProvince()) && this.postalCode.equals(address.getPostalCode());
+	public boolean Equals(Address address)
+	{
+		return street.equals(address.GetStreet()) && city.equals(address.GetCity()) &&
+				province.equals(address.GetProvince()) && postalCode.equals(address.GetPostalCode());
 	}
 }
