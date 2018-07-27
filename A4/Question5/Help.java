@@ -3,10 +3,8 @@ import java.util.Map;
 
 public class Help
 {
-	//Command is abstract base class
 	private Map<String, Command> map;
 
-	//adds concrete Command to map
 	public Help()
 	{
 		map = new HashMap<String, Command>();
