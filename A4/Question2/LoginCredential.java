@@ -1,6 +1,5 @@
 public class LoginCredential
 {
-	//stores login credentials
 	private String userName;
 	private String password;
 

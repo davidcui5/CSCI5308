@@ -1,6 +1,5 @@
 public class PhoneContact
 {
-	//stores area code and phone number
 	private String areaCode;
 	private String phoneNumber;
 
