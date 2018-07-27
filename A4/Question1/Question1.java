@@ -5,7 +5,6 @@ public class Question1
 	public String BuildBookQuoteHTML()
 	{
 		StringBuilder builder = new StringBuilder();
-
 		// Build header.
 		builder.append(BuildHeader());
 		// Add book quotes.
