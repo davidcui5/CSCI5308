@@ -1,6 +1,6 @@
 public class Person
 {
-	//this person has an address, which is a parameter object
+	//introduced parameter object: Address
 	private String name;
 	private Address address;
 
