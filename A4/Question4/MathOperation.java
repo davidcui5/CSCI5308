@@ -19,7 +19,6 @@ public abstract class MathOperation
 		return rightOperand;
 	}
 
-	//operation enum types are replaced by subclasses doing different operations
-	//subclasses override this for different operations
+	//enum types are replaced by subclasses that override this method with different operations
 	public abstract int GetResult();
 }
